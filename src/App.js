@@ -10,6 +10,7 @@ import { useStateValue } from "./StateProvider";
 import Payment from './Payment';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import PaymentPage from './PaymentPage';
 
 
 const promise = loadStripe(
@@ -54,14 +55,15 @@ function App() {
               <Route path="/login" element={<Login />}></Route>
               {/* <Route path="/payment" element={<Payment/>}></Route>
               */}
-              <Route path="/payment" element={
+              {/* <Route path="/payment" element={
                 <React.Fragment>
                   
                   <Header header={Header}/>
                   <Payment payment={Payment}/>
+                  <PaymentPage paymentpage={PaymentPage}/>
                 </React.Fragment>
               }>
-              </Route>
+              </Route> */}
 
               {/* <Route path="/payment">
             <Header />
@@ -69,8 +71,31 @@ function App() {
               <Payment />
             </Elements>
           </Route> */}
+
+            {/* <Route path="/payment" element={
+              <React.Fragment>
+                   
+                   <PaymentPage paymentpage={PaymentPage}/>
+              </React.Fragment>
+              }>
+            </Route> */}
               
+              <Route path="/payment" element={
+              <React.Fragment>
+                   
+                   <Payment payment={Payment}/>
+              </React.Fragment>
+              }>
+            </Route>
               
+
+            {/* <Route path="/checkout" element={
+              <React.Fragment>
+                   <Checkout checkout={Checkout}/>
+                   <PaymentPage paymentpage={PaymentPage}/>
+              </React.Fragment>
+              }>
+            </Route> */}
 
               <Route path="/checkout" element={<Checkout />}></Route>
               <Route path="/" element={<Home />}></Route>
